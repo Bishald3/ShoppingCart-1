@@ -6,17 +6,18 @@
     height:650px;
     width:1200px;
     margin:auto;
-    background-color:lightgrey;
+    background-color:red;
     
 }
 
 .flex-left{
    display:flex;
+    text-decoration-color: black;
     flex-direction:column;
     border:1px solid black;
     height:600px;
     width:250px;
-    background-color:skyblue;  
+    background-color:pink;  
     
 }
 
@@ -26,6 +27,27 @@
     border:1px solid black;
     height:650px;
     width:950px;
-    background-color:greenyellow;  
+    background-color:lightpink;  
     
+}
+
+.myBox
+{
+    height:60px;
+    width:160px;
+    cursor:pointer;
+    border-radius:10px;
+    font-size: 20px;
+    border-bottom: solid black;
+    background-color:peachpuff;
+    text-decoration-color: black
+    margin-top: 20px;
+    padding:25px;
+    test-align: center;
+}
+
+
+.myBox:hover{
+    background-color: #666666;
+    color: #fff;
 }

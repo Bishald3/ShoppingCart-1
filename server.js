@@ -55,6 +55,30 @@ app.get( "/service/inventory",function(req, res, next){
 });
 
 
+app.get( "/service/inventory_type",function(req, res, next){
+    //arrays to store dynamic parameters
+    var ids =[];
+
+    var query = "SELECT * FROM inventory_type";
+    req.getConnection(function(err, connection){
+        if(err) return next(err);
+
+        connection.query(query, ids, function(err, results){
+            if(err){
+                console.log(err);
+                return next("Mysql error, check your query");
+            }
+            res.json(results);
+
+        });
+
+
+    });
+
+
+});
+
+
 app.get( "/service/customer/:customer_id",function(req, res, next){
     //arrays to store dynamic parameters
     var ids =[];
