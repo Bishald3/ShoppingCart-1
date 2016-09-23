@@ -31,6 +31,13 @@
     
 }
 
+.landing{
+     display:flex;
+    flex-direction:column;
+    height:650px;
+    width:950px;
+}
+
 .myBox
 {
     height:60px;

@@ -2,7 +2,7 @@
 
 
     <div ng-repeat="items in productLists">
-        <div class="myBox" >
+        <div class="myBox" ng-click="chooseSelectedItem(items.itemNo,items.itemType)">
        <span>{{items.description}}</span>
         </div>
     
