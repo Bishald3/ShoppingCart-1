@@ -4,51 +4,84 @@ angular.module('app').controller('appCtrl', ['$scope','productService', function
 //$scope.productLists=productService.productLists;
 //$scope.productItems=productService.productItems;
 
-    
+    $scope.title = "Seema and Rubins Pawn shop";
     $scope.productLists = "";
-    //alert("appctrl");
-    alert(productService.productLists);    
+     
      $scope.$watch(function(){
                                 return productService.productLists;
                             },function(newVal,oldVal){
                                                         if(oldVal!=newVal)
                                                                 {
                                                                     $scope.productLists=newVal;
+                                                                    
+                                                                    
+                                                                    console.log("This is coming from controller for productlist")
+                                                                    console.log($scope.productLists);
+                                                                    
+                                                                    
+                                                                    
                                                                 }
-        console.log($scope.productLists);
-        alert($scope.productLists);
+        //console.log($scope.productLists);
+       // alert($scope.productLists);
     });
     
-    
+//productListsIds
     $scope.productItems = "";
-    alert("appctrl");
-    alert(productService.productItems);    
+    //alert("appctrl");
+    //alert(productService.productItems);    
      $scope.$watch(function(){
-                                return productService.productItems;
+      return productService.productItemsIds;
                             },function(newVal,oldVal){
                                                         if(oldVal!=newVal)
                                                                 {
-                                                                    $scope.productItems=newVal;
+                                                                    $scope.productItemsIds=newVal;
+                                                                    console.log("This is coming from controller for productItemIds")
+                                                                    console.log($scope.productItemsIds);
+                                                                    
+                                                                    
+                                                                    
                                                                 }
-        console.log($scope.productItems);
-        alert($scope.productItems);
+       
     });
     
+    //productTypesIds
+   $scope.$watch(function(){
+      return productService.productListsIds
+                            },function(newVal,oldVal){
+                                                        if(oldVal!=newVal)
+                                                                {
+                                                                    $scope.productListsIds=newVal;
+                                                                    console.log("This is coming from controller for productListsIds")
+                                                                    console.log($scope.productListsIds);
+                                                                    
+                                                                    
+                                                                    
+                                                                }
+       
+    });
     
-     $scope.chooseSelectedItem=function(itemID, itemDes) {
-
-
-                    $scope.selectId = itemID;
-                    $scope.itemDescription = itemDes;
-
-                    $scope.sortedlist = [];
-                    for (var i = 0; i < $scope.productItems.length; i++) {
-                            if ($scope.productItems[i].see == $scope.selectId) {
-                                    $scope.sortedlist.push($scope.productItems[i]);
-                            }
-                    }
-
-            };
+    $scope.select=function(id, description){
+    productService.id=id;
+        productService.getProductItemsIds();
+        
+        
+        productService.id=id;
+        productService.getProductListsIds();
+        
+       
+        
+    
+    }
+  
+//     $scope.chooseSelected=function(itemNumber, itemDes) {
+//                    $scope.selectId = itemNumber;
+//                    $scope.title = itemDes;
+//                    //$scope.productItems=productItems;
+//         
+//         
+//
+//   
+//            };
 
     
     

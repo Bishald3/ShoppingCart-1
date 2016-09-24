@@ -2,8 +2,10 @@
 
 
     <div ng-repeat="items in productLists">
-        <div class="myBox" ng-click="chooseSelectedItem(items.itemNo,items.itemType)">
+        <div class="myBox" ng-click="select(items.id,items.description)">
+<!--            alert(""Inside flex_html");-->
        <span>{{items.description}}</span>
+            
         </div>
     
     </div>   

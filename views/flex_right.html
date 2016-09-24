@@ -1,16 +1,17 @@
         <div class="flex-right">
             
             
+            <h1>{{title}}</h1>
             
-            
-            <div ng-repeat="list in sortedlist">
+            <div ng-repeat="product in productItemsIds">
        
 
-                    <h1>{{productLists[i].description}}</h1>
-        <label><img class="thumbnail" ng-src="{{list.image_path}}"/> </label>
-        <label>Name:{{list.productName}}</label><br>
-        <label>Price:{{list.price}}</label><br>
-        <label>Description:{{list.description}}</label><br>
+        
+        <label><img ng-src="{{product.img_path}}"/> </label>
+            
+        <label>Name:{{product.prod_name}}</label><br>
+        <label>Description:{{product.description}}</label><br>
+        <label>Price:{{product.price}}</label><br>
 
          </div>
 

@@ -1,29 +1,78 @@
 angular.module("app").service("productService", ["$http", function($http){
 
-    var obj=this;
-    $http.get("/service/inventory_type").then(function(response){  
-                obj.productLists= response.data;
-                //alert("Service1");
-                console.log(obj.productLists);
-                });
     
     
-    var objj=this;
+   
     
          $http.get("/service/inventory").then(function(response){
-         objj.productItems= response.data;           
-          console.log(objj.productItems);
-          //alert("Service");
-            var see=objj.productItems[i].id;
+            Obj.productItems= response.data; 
+             console.log("from Service inventory")
+             console.log(Obj.productItems);
+
 
    
     });
     
+    
+    
+      var Obj=this;
+        this.id=null;
 
+    this.getProductItemsIds=function(){
+        
+        var url ="/service/inventory/"+Obj.id;
+        
+        
+         $http.get(url).then(function(response){
+                          
+
+            Obj.productItemsIds= response.data; 
+             
+             
+             console.log("from Service inventory by inventorytype_id");
+             console.log(Obj.productItemsIds);
+
+
+   
+    });
+    }
+    
+    
+    
+    
+    
+    $http.get("/service/inventory_type").then(function(response){  
+                Obj.productLists= response.data;
+                console.log("Service1");
+                console.log(Obj.productLists);
+                });
+    
+    
+    
+    this.currentId = null;
+   
+    
+    this.getProductListsIds=function(){
+         $http.get("/service/inventory_type/"+Obj.currentId).then(function(response){
+            Obj.productListsIds= response.data;  
+             
+             console.log("from Service inventory_type by id")
+             console.log(Obj.productListsIds);
+
+
+   
+    });
+    }
+    
+    
     
     
     
     }]);
+
+
+
+
     
     
     

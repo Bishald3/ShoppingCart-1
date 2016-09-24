@@ -53,7 +53,29 @@ app.get( "/service/inventory",function(req, res, next){
 
 
 });
+app.get( "/service/inventory/:inventorytype_id",function(req, res, next){
+    //arrays to store dynamic parameters
+    var ids =[];
+    var inventorytype_id=req.params.inventorytype_id;
+    ids.push(inventorytype_id);
 
+    var query = "SELECT * FROM inventory WHERE inventorytype_id = ?";
+    req.getConnection(function(err, connection){
+        if(err) return next(err);
+
+        connection.query(query, ids, function(err, results){
+            if(err){
+                console.log(err);
+                return next("Mysql error, check your query");
+            }
+            res.json(results);
+
+        });
+
+
+    });
+
+});
 
 app.get( "/service/inventory_type",function(req, res, next){
     //arrays to store dynamic parameters
@@ -75,6 +97,30 @@ app.get( "/service/inventory_type",function(req, res, next){
 
     });
 
+
+});
+
+app.get( "/service/inventory_type/:id",function(req, res, next){
+    //arrays to store dynamic parameters
+    var ids =[];
+    var id=req.params.id;
+    ids.push(id);
+
+    var query = "SELECT * FROM inventory_type WHERE id = ?";
+    req.getConnection(function(err, connection){
+        if(err) return next(err);
+
+        connection.query(query, ids, function(err, results){
+            if(err){
+                console.log(err);
+                return next("Mysql error, check your query");
+            }
+            res.json(results);
+
+        });
+
+
+    });
 
 });
 
