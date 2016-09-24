@@ -1,13 +1,13 @@
         <div class="flex-right">
             
             
-            <h1>{{title}}</h1>
+           <div class="titlediv"> <h2 class="title">{{title}}</h2></div>
+            
+            
             
             <div ng-repeat="product in productItemsIds">
        
-
-        
-        <label><img ng-src="{{product.img_path}}"/> </label>
+        <label><img class="thumbnail" ng-src="{{product.img_path}}"/> </label>
             
         <label>Name:{{product.prod_name}}</label><br>
         <label>Description:{{product.description}}</label><br>

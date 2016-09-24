@@ -4,7 +4,7 @@ angular.module('app').controller('appCtrl', ['$scope','productService', function
 //$scope.productLists=productService.productLists;
 //$scope.productItems=productService.productItems;
 
-    $scope.title = "Seema and Rubins Pawn shop";
+    $scope.title = "RUS Store";
     $scope.productLists = "";
      
      $scope.$watch(function(){
